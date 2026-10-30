@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Starter</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; }
+    input { padding: 8px; width: 70%; } button { padding: 8px 12px; }
+    li { padding: 6px 0; border-bottom: 1px solid #eee; }
+  </style>
+</head>
+<body>
+  <h1>Starter</h1>
+  <form id="f"><input id="t" placeholder="항목 입력" required><button>추가</button></form>
+  <ul id="list"></ul>
+  <script>
+    async function load() {
+      const items = await (await fetch("/api/items")).json();
+      document.getElementById("list").innerHTML = items.map(i => `<li>${i.text}</li>`).join("");
+    }
+    document.getElementById("f").onsubmit = async (e) => {
+      e.preventDefault();
+      const text = document.getElementById("t").value;
+      await fetch("/api/items", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }) });
+      document.getElementById("t").value = ""; load();
+    };
+    load();
+  </script>
+</body>
+</html>
