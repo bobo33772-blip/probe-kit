@@ -29,5 +29,6 @@ cp probe-kit/AGREEMENT.md probe-kit/DECISIONS.md probe-kit/UNDERSTAND.md ./
 | AGENTS.md | Codex 작업 지시문 (단계마다 이유·실패 지점 보고) |
 | DECISIONS.md | 결정 기록 |
 | UNDERSTAND.md | 내 말로 쓰는 이해 노트 (서술형 답의 재료) |
+| PROMPTS.md | 고득점용 문장 모음 (우선순위·지표·테스트·중간 확인·마무리 점검) |
 | PROJECT_README.md | 결과물 README 틀 |
 | server.js / server.py / index.html | 환경 점검용 최소 웹 서버 (과제에는 사용하지 않음) |
